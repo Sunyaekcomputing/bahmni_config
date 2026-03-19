@@ -1,0 +1,114 @@
+{
+  "sections": [
+    {
+      "name": "Allergies",
+      "translationKey": "DASHBOARD_TITLE_ALLERGIES_KEY",
+      "icon": "fa-hand-dots",
+      "controls": [
+        {
+          "type": "allergies"
+        }
+      ]
+    },
+    {
+      "name": "Programs",
+      "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY",
+      "icon": "fa-clipboard-list",
+      "controls": [
+        {
+          "type": "programs",
+          "config": {
+            "fields": [
+              "programName",
+              "ID_Number",
+              "startDate",
+              "endDate",
+              "outcome",
+              "state"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Conditions",
+      "translationKey": "DASHBOARD_TITLE_CONDITIONS_KEY",
+      "icon": "fa-stethoscope",
+      "controls": [
+        {
+          "type": "conditions"
+        },
+        {
+          "type": "diagnoses"
+        }
+      ]
+    },
+    {
+      "name": "Medications",
+      "translationKey": "DASHBOARD_TITLE_MEDICATIONS_KEY",
+      "icon": "fa-pills",
+      "controls": [
+        {
+          "type": "treatment"
+        }
+      ]
+    },
+    {
+      "name": "Procedures",
+      "translationKey": "DASHBOARD_TITLE_PROCEDURES_KEY",
+      "icon": "fa-flask",
+      "controls": [
+        {
+          "type": "ordersControl",
+          "config": {
+            "orderType": "Procedure Order"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lab Investigations",
+      "translationKey": "DASHBOARD_TITLE_LAB_INVESTIGATIONS_KEY",
+      "icon": "fa-flask",
+     "controls": [
+        {
+          "type": "labOrders",
+          "config": {
+            "orderType": "Lab order",
+            "numberOfVisits": 5
+          }
+    }]
+    },
+    {
+      "name": "Radiology Investigations",
+      "translationKey": "DASHBOARD_TITLE_RADIOLOGY_INVESTIGATIONS_KEY",
+      "icon": "fa-x-ray",
+      "controls": [
+        {
+          "type": "pacsOrders"
+        }
+      ]
+    },
+    {
+      "name": "Flowsheet",
+      "translationKey": "DASHBOARD_TITLE_VITALS_FLOWSHEET_KEY",
+      "icon": "fa-table",
+      "controls": [
+        {
+          "type": "flowSheet",
+          "config": {
+            "latestCount": 5,
+            "groupBy": "obstime",
+            "obsConcepts": [
+              "Temperature",
+              "Pulse",
+              "Respiratory rate",
+              "Blood Pressure",
+              "Body Position"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

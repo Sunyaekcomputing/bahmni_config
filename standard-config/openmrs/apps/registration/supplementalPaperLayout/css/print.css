@@ -1,3 +1,6 @@
+* {
+    margin: 0;
+}
 .row {
     float: clear;
 }
@@ -9,7 +12,32 @@
     width: 50%;
     float: left;
 }
-
 .label {
     font-weight: bold;
+}
+.fontForSticker {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.dept {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 10px;
+}
+.borderless td, .borderless th {
+    border: none;
+}
+table.inner {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+}
+table.table tr>td:first-child {
+    font-weight: bold;
+}
+.d-none {
+    display: none;
 }

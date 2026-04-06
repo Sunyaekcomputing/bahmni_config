@@ -30,9 +30,9 @@
                 "title": "Additional Patient Information",
                 "attributes": [
                     "NHIS Number",
-                    "Is NHIS Active",
+                    "NHIS Member Active",
                     "Claim Code",
-                    "Is NHIS primary contact point"
+                    "NHIS primary contact point"
                 ]
             },
             "hidden": {
@@ -71,30 +71,23 @@
         "showCasteSameAsLastNameCheckbox": false,
         "printOptions": [
             {
-                "translationKey": "REGISTRATION_PRINT_REG_CARD_LOCAL_KEY",
-                "templateUrl": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/print_local.html",
-                "shortcutKey": "l"
-            },
-            {
-                "translationKey": "REGISTRATION_PRINT_REG_CARD_KEY",
-                "templateUrl": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/print.html",
-                "shortcutKey": "p"
-            },
-            {
-                "translationKey": "REGISTRATION_PRINT_SUPPLEMENTAL_PAPER",
+                "translationKey": "REGISTRATION_PRINT_LABEL",
                 "templateUrl": "/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/print.html",
-                "shortcutKey": "r"
-            },
-            {
-                "translationKey": "REGISTRATION_PRINT_WITH_BARCODE",
-                "templateUrl": "/bahmni_config/openmrs/apps/registration/registrationCardLayout/printWithBarcode.html",
-                "shortcutKey": "c"
+                "shortcutKey": "r",
+                "prices": {
+                    "OPD Ticket": [30, 50],
+                    "ER Ticket": [50, 100]
+                }
             }
         ],
         "conceptSetUI": {
             "REGISTRATION FEES": {
                 "required": true,
                 "label": "Fee"
+            },
+            "Department Sent To": {
+                "required": false,
+                "dropdown": true
             },
             "FHS": {
                 "buttonSelect": true
@@ -124,6 +117,6 @@
             "strictAutocompleteFromLevel": "postalCode"
         },
         "enableNepaliCalendar": true,
-        "displayNepaliDates": false
+        "displayNepaliDates": true
     }
 }

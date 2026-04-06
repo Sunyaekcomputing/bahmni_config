@@ -1,52 +1,89 @@
-<link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/css/print.css"/>
+<link rel="stylesheet" href="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/css/print.css"></link>
+<script src="/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/js/qrcode.min.js"></script>
 <div>
-    <style>
-    </style>
-    <div class="row">
-        <div class="left">
-            <span class="label">ओपीडी क्र.:</span>
-            <span></span>
-        </div>
-        <div class="right">
-            <span class="label">दिनांक:</span>
-            <span>{{today | date:'dd/MM/yyyy'}}</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="left">
-            <span class="label">पंजी. क्र.:</span>
-            <span>{{patient.primaryIdentifier.identifier}}</span>
-        </div>
-        <div class="right">
-            <span class="label">गाँव:</span>
-            <span>{{patient.address.cityVillage}}</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="left">
-            <span class="label">नाम:</span>
-            <span>{{patient.fullNameLocal() || patient.name}}</span>
-        </div>
-        <div class="right">
-            <span class="label">जिला:</span>
-            <span>{{patient.address.countyDistrict}}</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="left">
-            <span class="label">पिता/पति का नाम:</span>
-            <span>{{patient.primaryRelative}}</span>
-        </div>  
-        <div class="right">
-            <span class="label">उम्र/लिंग:</span>
-            <span>{{patient.age.years || "0"}}</span>
-            <span ng-show="patient.gender">/ {{patient.gender}}</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="left">
-            <span class="label">वज़न:</span>
-            <span>{{obs.WEIGHT}}</span>
-        </div>
+    <div class="row fontForSticker">
+        <span id="uuid" class="d-none">{{ patient.primaryIdentifier.identifier }}</span>
+        <table class="table borderless">
+            <tbody>
+                <tr>
+                    <td>
+                        <canvas style="margin-right: 20px;" id="qrcode"></canvas>
+                    </td>
+                    <td>
+                        <table class="table borderless inner">
+                            <tr>
+                                <td>ID</td>
+                                <td>:</td>
+                                <td><b>{{ patient.primaryIdentifier.identifier }}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Patient</td>
+                                <td>:</td>
+                                <td ng-switch on="patient.gender" class="row">
+                                    {{ patient.fullNameLocal() }},
+                                    <span>
+                                        ({{ patient.age.years }}Y {{ patient.age.months }}M {{ patient.age.days }}D)
+                                    </span>
+                                    <span ng-switch-when="M">
+                                        Male
+                                    </span>
+                                    <span ng-switch-when="F">
+                                        Female
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Date</td>
+                                <td>:</td>
+                                <td ng-if="!displayNepaliDates">{{ patient.registrationDate | bahmniDate}}</td>
+                                <td ng-if="displayNepaliDates">{{ patient.registrationDate | npDate }}</td>
+                            </tr>
+                            <tr ng-if="patient['phoneNumber']">
+                                <td>Mobile No.</td>
+                                <td>:</td>
+                                <td>{{ patient["phoneNumber"] }}</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>:</td>
+                                <td>
+                                    <span>{{ patient.address.cityVillage }}</span> -
+                                    <span>{{ patient.address.address1 }}</span>,
+                                    <span>{{ patient.address.countyDistrict }}</span>
+                                </td>
+                            </tr>
+                            <tr ng-if="patient['NHIS Number']">
+                                <td>NHIS Number</td>
+                                <td>:</td>
+                                <td>{{ patient['NHIS Number'] }}</td>
+                            </tr>
+                            <tr>
+                                <td>Visit/User</td>
+                                <td>:</td>
+                                <td>{{ visitTypePrice }} / {{ user }}</td>
+                            </tr>
+                            <tr>
+                                <td>Department</td>
+                                <td>:</td>
+                                <td>{{ obs['Department Sent To'][0].value }}</td>
+                            </tr>
+                            <tr ng-if="patient['IPD Number']">
+                                <td>IPD Number</td>
+                                <td>:</td>
+                                <td>{{ patient['IPD Number'] }}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
+<script>
+    var canvas = document.getElementById('qrcode');
+    var uuid = document.getElementById('uuid').innerText;
+
+    QRCode.toCanvas(canvas, uuid, {
+        width: 100
+    });
+</script>

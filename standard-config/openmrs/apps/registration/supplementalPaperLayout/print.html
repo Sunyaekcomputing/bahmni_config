@@ -35,7 +35,7 @@
                             <tr>
                                 <td>Date</td>
                                 <td>:</td>
-                                <td ng-if="!displayNepaliDates">{{ patient.registrationDate | bahmniDate}}</td>
+                                <td ng-if="!displayNepaliDates">{{ patient.registrationDate | bahmniDate }}</td>
                                 <td ng-if="displayNepaliDates">{{ patient.registrationDate | npDate }}</td>
                             </tr>
                             <tr ng-if="patient['phoneNumber']">

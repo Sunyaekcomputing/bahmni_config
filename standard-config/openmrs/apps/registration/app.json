@@ -32,7 +32,7 @@
                     "NHIS Number",
                     "NHIS Member Active",
                     "Claim Code",
-                    "NHIS primary contact point"
+                    "NHIS Primary Contact Point"
                 ]
             },
             "hidden": {
@@ -109,7 +109,7 @@
             "customAttributes": {
                 "label": "Phone Number",
                 "placeholder": "Phone Number",
-                "fields": ["phoneNumber","alternatePhoneNumber"]
+                "fields": ["phoneNumber","NHIS Number"]
             }
         },
         "addressHierarchy": {

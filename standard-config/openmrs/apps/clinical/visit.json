@@ -179,13 +179,20 @@
                     ],
                     "scope": "latest"
                 }
+            },
+            "doctor_info": {
+                "type": "doctorInformation",
+                "config": {
+                    "title": "Doctor Information"
+                },
+                "displayOrder": 9
             }
         },
-            "encounterContext": {
-                "filterEncounterTypes": [
-                    "Consultation"
-                ]
-            }
+        "encounterContext": {
+            "filterEncounterTypes": [
+                "Consultation"
+            ]
+        }
     },
     "orders":{
       "translationKey": "DASHBOARD_TAB_ORDERS_KEY",

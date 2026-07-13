@@ -9,7 +9,11 @@
                 "type":"patientInformation",
                 "displayOrder":0,
                 "ageLimit":100,
-                "patientAttributes":[],
+                "patientAttributes": [
+                    "NHIS Number",
+                    "Claim Code",
+                    "Contact Number"
+                ],
                 "additionalPatientIdentifiers": [],
                 "addressFields":[  
                     "address1",
@@ -70,7 +74,7 @@
                     "showListView":true,
                     "showRoute":true,
                     "showDrugForm":true,
-                    "numberOfVisits":5,
+                    "numberOfVisits":2,
                     "showOtherActive":true,
                     "showDetailsButton":true
                 },

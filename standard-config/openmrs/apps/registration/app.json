@@ -75,14 +75,30 @@
                 "templateUrl": "/bahmni_config/openmrs/apps/registration/supplementalPaperLayout/print.html",
                 "shortcutKey": "r",
                 "prices": {
+                    "ER Ticket": [50, 100],
+                    "Follow up Emergency": [0, 0], 
                     "OPD Ticket": [30, 50],
-                    "ER Ticket": [50, 100]
+                    "EHS Ticket": [300, 200], 
+                    "FollowUp Ticket": [15, 0],
+                    "Free FollowUp Ticket": [0, 0],
+                    "Senior Citizen": [0, 0],
+                    "Immunization Ticket": [0, 0],
+                    "POOR": [0, 0],
+                    "Disable": [0, 0],
+                    "FCHB": [0, 0],
+                    "Above 60": [0, 0],
+                    "Below 10": [0, 0],            
+                    "Free Ticket": [0, 0],
+                    "Free Health Camp": [0,0],
+                    "Copayment": [45,45],
+                    "Copayment Ticket": [45,45],
+                    "Insurance Followup Ticket": [0,0]
                 }
             }
         ],
         "conceptSetUI": {
             "REGISTRATION FEES": {
-                "required": true,
+                "required": false,
                 "label": "Fee"
             },
             "Department Sent To": {
@@ -107,15 +123,23 @@
         },
         "patientSearch": {
             "customAttributes": {
-                "label": "Phone Number",
-                "placeholder": "Phone Number",
-                "fields": ["phoneNumber","NHIS Number"]
+                "label": "Phone/NHIS Number",
+                "placeholder": "Phone/NHIS Number",
+                "fields": ["phoneNumber", "NHIS Number"]
             }
         },
         "addressHierarchy": {
             "showAddressFieldsTopDown": false,
             "strictAutocompleteFromLevel": "postalCode"
         },
+        "patientSearchResults": {
+			"personAttributes":{
+                "fields": [ "Contact Number", "NHIS Number"]
+            },
+            "address": {
+                "fields": ["city_village", "address1"]
+            }	 
+        },  
         "enableNepaliCalendar": true,
         "displayNepaliDates": true
     }
